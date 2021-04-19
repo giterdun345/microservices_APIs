@@ -29,7 +29,7 @@ app.get('/now', (req, res, next)=>{
 }, 
 (req, res, next)=>{
   console.log(req.time)
-  res.send(req.time)
+  res.json({time: req.time})
   next()
 }
 )
