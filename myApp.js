@@ -34,6 +34,10 @@ app.get('/now', (req, res, next)=>{
 }
 )
 
+app.use('/:word/echo', (req, res) => 
+res.json({echo:req.params.word})
+)
+
 
 
 
