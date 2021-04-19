@@ -3,7 +3,7 @@ var app = express();
 require('dotenv').config()
 
 app.use((req, res, next) => {
-  console.log(req.method +' '+ req.path + ' - ' + req.ip)
+  // console.log(req.method +' '+ req.path + ' - ' + req.ip)
   next()
 })
 
@@ -28,7 +28,7 @@ app.get('/now', (req, res, next)=>{
   next()
 }, 
 (req, res, next)=>{
-  console.log(req.time)
+  // console.log(req.time)
   res.json({time: req.time})
   next()
 }
@@ -38,7 +38,9 @@ app.use('/:word/echo', (req, res) =>
 res.json({echo:req.params.word})
 )
 
-
+app.get('/name', (req, res) =>{
+  res.json({"first": req.query.first, "last":req.query.last})
+ })
 
 
 
